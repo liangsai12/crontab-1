@@ -8,17 +8,21 @@ MODDIR=${0%/*}
 # TimeZoon 8,China. I do not known how to use tzselect
 export TZ=Asia/Shanghai
 #
-mktouch /data/crontabs/root 2</dev/null
+mkdir -p /data/media/0/cron/crontabs 
+touch /data/media/0/cron/crontabs/root
+
 #
 #a shell file 
-mktouch /data/cronsh/zd.sh 2</dev/null
-chmod 766 /data/cronsh/zd.sh 2</dev/null
+mkdir -p /data/media/0/cron/cronsh 
+touch /data/media/0/cron/cronsh/zd.sh
+#mktouch /data/cronsh/zd.sh 2</dev/null
+chmod 766 /data/media/0/cron/cronsh/zd.sh 2</dev/null
 #cron start 
 #cron enable
 #date > /data/cron.log;
 
 #change the path
-crond -c /data/crontabs 
+crond -c /data/media/0/cron/crontabs 
 #crond -l 1-L /sdcard/cron_error.log
 # This script will be executed in late_start service mode
 # More info in the main Magisk thread
